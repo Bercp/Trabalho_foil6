@@ -9,9 +9,6 @@ from dataclasses import dataclass, field
 from typing import Dict, List, Tuple, Optional
 import sys
 
-# ------------------------------
-# Base class for life stages
-# ------------------------------
 
 class LifeStage:
     name: str = "LifeStage"
@@ -107,12 +104,12 @@ class Teen(LifeStage):
             person._energy -= 2
             person._xp += 1
             return "Jogou futebol! +2 saúde, +1 coordenação, -2 energia, +1 XP."
-        elif activity == "Jogar Videogame":
+        elif activity == "Jogar Tibia":
             person._skills["coordenação"] += 1
             person._skills["criatividade"] += 1
             person._energy -= 1
             person._xp += 1
-            return "Jogou videogame! +1 coordenação, +1 criatividade, -1 energia, +1 XP."
+            return "Jogou tibia! +1 coordenação, +1 criatividade, -1 energia, +1 XP."
         elif activity == "Dormir":
             person._energy = min(person._energy + 4, 10)
             return "Dormiu como um anjo! +4 energia."
@@ -138,14 +135,14 @@ class Adult(LifeStage):
             person._skills["conhecimento"] += 2
             person._energy -= 2
             person._xp += 1
-            return "Estudou (curso/pós)! +2 conhecimento, -2 energia, +1 XP."
+            return "Estudou (engenharia nao é facil)! +2 conhecimento, -2 energia, +1 XP."
         elif activity == "Sair com os amigos":
             person._skills["bem-estar"] += 2
             person._skills["criatividade"] += 1
             person._energy -= 1
             person._xp += 1
             return "Saiu com os amigos! +2 bem-estar, +1 criatividade, -1 energia, +1 XP."
-        elif activity == "Exercício físico":
+        elif activity == "Correr":
             person._skills["saúde"] += 2
             person._energy -= 1
             person._xp += 1
@@ -188,10 +185,6 @@ class Veio(LifeStage):
         return "Atividade não reconhecida."
 
 
-# ------------------------------
-# Stage factory and registry
-# ------------------------------
-
 class StageFactory:
     stages: List[LifeStage] = [Baby(), Child(), Teen(), Adult(), Veio()]
     
@@ -212,10 +205,6 @@ class StageFactory:
                 return None
         return None
 
-
-# ------------------------------
-# Person (core object)
-# ------------------------------
 
 @dataclass
 class Person:
@@ -254,7 +243,7 @@ class Person:
     
     def perform(self, activity: str) -> str:
         if self._destroyed:
-            return "Objeto já destruído. Jogo encerrado."
+            return "Projeto de vida acabou. Jogo encerrado."
         if self._energy <= 0 and activity != "Dormir":
             return "Sem energia! Escolha 'Dormir' para se recuperar."
         msg = self.stage.perform_activity(self, activity)
@@ -282,9 +271,6 @@ class Person:
         return "Projeto de Vida concluido."
 
 
-# ------------------------------
-# Simple console UI
-# ------------------------------
 
 def ask_int(prompt: str, min_val: int, max_val: int) -> int:
     while True:
@@ -298,10 +284,10 @@ def ask_int(prompt: str, min_val: int, max_val: int) -> int:
 
 def main() -> None:
     print("=== projeto de vida ===")
-    name = input("Seu nome: ").strip() or "Jogador(a)"
+
     
-    p = Person(name=name, age=0)
-    print("\nNasceu um novo objeto Person! (new)")
+    p = Person("Bernardo Couto Pereira", age=0)
+    print("\nNasceu um nova Pessoa ")
     print(p.summary())
     
     while True:
