@@ -288,7 +288,7 @@ def main() -> None:
 
     
     p = Person("Bernardo Couto Pereira", age=0)
-    print("\nNasceu um nova Pessoa ")
+    print("\n 19/09/1994 Nasceu um nova Pessoa ")
     print(p.summary())
     
     while True:
