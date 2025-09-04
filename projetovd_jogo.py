@@ -12,7 +12,7 @@ import sys
 
 class LifeStage:
     name: str = "LifeStage"
-    age_range: Tuple[int, Optional[int]] = (0, None)  # (min, max) max=None => sem teto
+    age_range: Tuple[int, Optional[int]] = (0, None)  # (min, max)
     xp_goal: int = 3  # meta padrão de XP para subir de nível
     
     def activities(self) -> List[str]:
@@ -35,7 +35,7 @@ class Baby(LifeStage):
     xp_goal = 2
     
     def activities(self) -> List[str]:
-        # Bebê: Engatinhar, Chorar e Dormir
+        # Bebê:
         return ["Engatinhar", "Chorar", "Dormir"]
     
     def perform_activity(self, person: "Person", activity: str) -> str:
@@ -61,7 +61,7 @@ class Child(LifeStage):
     xp_goal = 3
     
     def activities(self) -> List[str]:
-        # Criança: Brincar na rua , Jogar Videogame e Dormir
+        # Criança:
         return ["Brincar na rua", "Jogar Videogame", "Dormir"]
     
     def perform_activity(self, person: "Person", activity: str) -> str:
@@ -89,7 +89,7 @@ class Teen(LifeStage):
     xp_goal = 4
     
     def activities(self) -> List[str]:
-        # Adolescente: Estudar, Jogar Futebol, Jogar Videogame e Dormir
+        # Adolescente:
         return ["Estudar", "Jogar Futebol", "Jogar Videogame", "Dormir"]
     
     def perform_activity(self, person: "Person", activity: str) -> str:
@@ -122,7 +122,7 @@ class Adult(LifeStage):
     xp_goal = 4
     
     def activities(self) -> List[str]:
-        # Adulto: Trabalhar, Estudar, Sair com os amigos, Exercício físico, Dormir
+        # Adulto:
         return ["Trabalhar", "Estudar", "Sair com os amigos", "Exercício físico", "Dormir"]
     
     def perform_activity(self, person: "Person", activity: str) -> str:
@@ -159,7 +159,7 @@ class Veio(LifeStage):
     xp_goal = 3
     
     def activities(self) -> List[str]:
-        # Véio: Jogar Videogame, Sair com os amigos, Exercício físico e Dormir
+        # Véio: PREVISÃO DO FUTURO
         return ["Jogar Videogame", "Sair com os amigos", "Exercício físico", "Dormir"]
     
     def perform_activity(self, person: "Person", activity: str) -> str:
