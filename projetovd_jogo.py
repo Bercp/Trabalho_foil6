@@ -284,6 +284,7 @@ def ask_int(prompt: str, min_val: int, max_val: int) -> int:
 
 def main() -> None:
     print("=== projeto de vida ===")
+    print("a minha vida está funcionando? -> Sim")
 
     
     p = Person("Bernardo Couto Pereira", age=0)
